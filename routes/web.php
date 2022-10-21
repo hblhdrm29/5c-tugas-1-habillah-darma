@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DosenController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\MatakuliahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +15,29 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::controller(MatakuliahController::class)->group(function () {
+    Route::get('/insert_mk', 'insert');
+    Route::get('/select_mk', 'select');
+    Route::get('/update_mk', 'update');
+    Route::get('/delete_mk', 'delete');
+});
+
+Route::controller(MahasiswaController::class)->group(function () {
+    Route::get('/insert_mhs', 'insert');
+    Route::get('/select_mhs', 'select');
+    Route::get('/update_mhs', 'update');
+    Route::get('/delete_mhs', 'delete');
+});
+
+Route::controller(DosenController::class)->group(function () {
+    Route::get('/insert_dsn', 'insert');
+    Route::get('/select_dsn', 'select');
+    Route::get('/update_dsn', 'update');
+    Route::get('/delete_dsn', 'delete');
+});
+
+
+
 Route::get('/', function () {
     $dsn = [
         "Rini Mayasari",
